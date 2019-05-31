@@ -1,0 +1,97 @@
+<form fxLayout="column" [formGroup]="form">
+  <mat-card >
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="50px" fxLayoutGap.lt-md="0px">
+    <mat-form-field fxFlex>
+      <input matInput type="text" placeholder="Name" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+      <input matInput type="text" placeholder="Last Name" >
+    </mat-form-field>
+
+
+  </div>
+
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="50px" fxLayoutGap.lt-md="0px">
+    <mat-form-field fxFlex>
+      <input matInput  type="text"  placeholder="E-mail" formControlName="lastName" >
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+        <input matInput type="text" placeholder="Phone" >
+      </mat-form-field>
+
+  </div>
+  <br>
+  <br>
+
+    <mat-card formGroupName="address">
+      <mat-card-header>
+        <mat-card-title>  Address </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+
+          <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="50px" fxLayoutGap.lt-md="0px">
+              <mat-form-field fxFlex>
+                <input matInput  type="text"  placeholder="Description" formControlName="description">
+              </mat-form-field>
+          </div>
+
+          <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="50px" fxLayoutGap.lt-md="0px">
+              <mat-form-field fxFlex="25">
+                <input matInput  type="text"  placeholder="Zip-code" formControlName="zipCode" >
+              </mat-form-field>
+
+              <mat-form-field fxFlex>
+                  <input matInput  type="text"  placeholder="Place" formControlName="place">
+              </mat-form-field>
+          </div>
+
+          <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="50px" fxLayoutGap.lt-md="0px">
+              <mat-form-field fxFlex="25">
+                <input matInput  type="text"  placeholder="Neigborhood" formControlName="neigborhood" >
+              </mat-form-field>
+
+              <mat-form-field fxFlex="17">
+                  <input matInput  type="text"  placeholder="Number" formControlName="number" >
+              </mat-form-field>
+
+              <mat-form-field fxFlex>
+                  <input matInput  type="text"  placeholder="Complement" formControlName="complement" >
+              </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="50px" fxLayoutGap.lt-md="0px">
+            <mat-form-field fxFlex>
+              <mat-label>State</mat-label>
+              <mat-select formControlName="state">
+                <mat-option *ngFor="let state of states" [value]="state.id">
+                  {{state.name}}
+                </mat-option>
+
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field fxFlex>
+              <mat-label>City</mat-label>
+              <mat-select formControlName="city">
+                <mat-option *ngFor="let city of cities | async"  [value]="city.name">
+                  {{city.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+      </mat-card-content>
+
+      <button mat-raised-button  class="primary" >Add</button>
+      <br>
+      <br>
+
+      <app-table></app-table>
+
+    </mat-card>
+
+    <app-debug [form]="form"></app-debug>
+
+</mat-card>
+</form>
