@@ -80,15 +80,13 @@
               </mat-select>
             </mat-form-field>
           </div>
+        </mat-card-content>
 
-      </mat-card-content>
+        <button mat-raised-button  class="primary " (click)="onAddAddress()" >Add</button>
+        <br>
+        <br>
 
-      <button mat-raised-button  class="primary" >Add</button>
-      <br>
-      <br>
-
-      <app-table></app-table>
-
+      <app-address-table></app-address-table>
     </mat-card>
 
     <app-debug [form]="form"></app-debug>

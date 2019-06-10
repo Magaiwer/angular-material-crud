@@ -1,11 +1,13 @@
-import { map } from 'rxjs/operators';
-import { PersonService } from './../service/person.service';
-import { Component, OnInit, createPlatformFactory, Pipe } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
+import { PersonService } from '../service/person.service';
 import { State } from '../model/state';
 import { City } from '../model/city';
+import { Address } from '../model/address';
+import { MatTable } from '@angular/material/table';
 
 
 @Component({
@@ -15,21 +17,23 @@ import { City } from '../model/city';
 })
 export class PersonFormComponent implements OnInit {
 
-  states: State [];
+  displayedColumns: string[] = ['description', 'place', 'number', 'city'];
+
+  states = Array<State>();
   cities: Observable<City[]>;
   form: FormGroup;
 
+
   constructor(
     private formBuilder: FormBuilder,
-    private personService: PersonService
+    private personService: PersonService,
+    private changeDetectorRefs: ChangeDetectorRef
     ) { }
 
   ngOnInit() {
     this.createForm();
     this.loadStates();
     this.onComboStateChange();
-
-
   }
 
   createForm() {
@@ -51,13 +55,8 @@ export class PersonFormComponent implements OnInit {
   }
 
   loadStates() {
-    this.personService.getStates().subscribe(data => this.states = data);
+    this.personService.getStates().subscribe(states => this.states = states);
   }
-
-/*   onComboStateChange() {
-    this.form.get('address.state').valueChanges
-    .subscribe((state: number) => this.cities = this.personService.getCities(state));
-  } */
 
   onComboStateChange() {
     this.form.get('address.state').valueChanges
@@ -67,13 +66,18 @@ export class PersonFormComponent implements OnInit {
     .subscribe(cities => this.cities = cities);
   }
 
-  /* this.formulario.get('endereco.estado').valueChanges
-  .pipe(
-    tap(estado => console.log('Novo estado: ', estado)),
-    map(estado => this.estados.filter(e => e.sigla === estado)),
-    map(estados => estados && estados.length > 0 ? estados[0].id : empty()),
-    switchMap((estadoId: number) => this.dropdownService.getCidades(estadoId)),
-    tap(console.log)
-  )
-  .subscribe(cidades => this.cidades = cidades); */
+  onAddAddress() {
+    const valueSubmit = Object.assign({}, this.form.value);
+    this.personService.addAddress(Object.assign({}, valueSubmit.address));
+    this.reset();
+  }
+
+  deleteAddress(address: Address) {
+    this.personService.removeAddress(address);
+  }
+
+  reset() {
+    this.form.reset();
+  }
+
 }

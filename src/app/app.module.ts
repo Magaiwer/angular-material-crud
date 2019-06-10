@@ -9,24 +9,31 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import {MatToolbarModule,
-  MatButtonModule,
-  MatSidenavModule,
-  MatIconModule,
-  MatListModule,
-  MatInputModule,
-  MatFormFieldModule,
-  MatCardModule,
-  MatGridListModule,
-  MatSelectModule,
-  MatTableModule,
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { PersonFormComponent } from './person-form/person-form.component';
 import { TableComponent } from './table/table.component';
 import { DebugComponent } from './debug/debug.component';
+import { AddressTableComponent } from './data-tables/address-table/address-table.component';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, PersonFormComponent, TableComponent, DebugComponent],
+  declarations: [
+    AppComponent,
+    NavBarComponent,
+    PersonFormComponent,
+    TableComponent,
+    DebugComponent,
+    AddressTableComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -48,6 +55,7 @@ import { DebugComponent } from './debug/debug.component';
     MatSelectModule,
     MatTableModule
   ],
+  exports: [TableComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
