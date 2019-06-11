@@ -36,7 +36,7 @@ export class PersonService {
   }
 
   removeAddress(address) {
-    this.addresses = this.addresses.filter(element => element !== address);
+    this.addresses = this.addresses.filter(elem => elem !== address);
     this.subject.next(this.addresses);
   }
 

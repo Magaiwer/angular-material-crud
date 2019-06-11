@@ -21,7 +21,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { PersonFormComponent } from './person-form/person-form.component';
-import { TableComponent } from './table/table.component';
 import { DebugComponent } from './debug/debug.component';
 import { AddressTableComponent } from './data-tables/address-table/address-table.component';
 
@@ -30,7 +29,6 @@ import { AddressTableComponent } from './data-tables/address-table/address-table
     AppComponent,
     NavBarComponent,
     PersonFormComponent,
-    TableComponent,
     DebugComponent,
     AddressTableComponent
   ],
@@ -55,7 +53,6 @@ import { AddressTableComponent } from './data-tables/address-table/address-table
     MatSelectModule,
     MatTableModule
   ],
-  exports: [TableComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
