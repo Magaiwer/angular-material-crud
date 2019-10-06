@@ -47,4 +47,8 @@ export class PersonService {
   OnDestroy() {
     this.subject.unsubscribe();
   }
+
+  addressesIsEmpty(): boolean {
+    return this.addresses.length === 0;
+  }
 }

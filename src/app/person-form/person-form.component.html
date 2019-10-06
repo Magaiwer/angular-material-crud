@@ -27,7 +27,7 @@
 
     <mat-card formGroupName="address">
       <mat-card-header>
-        <mat-card-title>  Address </mat-card-title>
+        <mat-card-title>Address</mat-card-title>
       </mat-card-header>
       <mat-card-content>
 
@@ -82,11 +82,14 @@
           </div>
         </mat-card-content>
 
-        <button mat-raised-button  class="primary " (click)="onAddAddress()" >Add</button>
+        <button mat-stroked-button  color="primary" (click)="onAddAddress()">
+            <mat-icon>add_circle</mat-icon>
+            Add
+        </button>
         <br>
         <br>
 
-      <app-address-table></app-address-table>
+      <app-address-table [form]="form"></app-address-table>
     </mat-card>
 
     <app-debug [form]="form"></app-debug>
