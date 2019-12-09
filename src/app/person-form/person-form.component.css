@@ -1,12 +1,3 @@
-/* .example-container {
-  display: flex;
-  flex-direction: column;
-}
-.example-full-width  {
-  width: 100%;
-}
- */
-
  mat-grid-tile {
    border-color: rebeccapurple;
    border: 2px;
