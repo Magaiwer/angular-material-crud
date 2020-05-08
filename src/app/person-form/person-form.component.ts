@@ -1,14 +1,12 @@
-import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
-import { PersonService } from '../service/person.service';
-import { State } from '../model/state';
-import { City } from '../model/city';
-import { Address } from '../model/address';
-import { MatTable } from '@angular/material/table';
-
+import {PersonService} from '../service/person.service';
+import {State} from '../model/state';
+import {City} from '../model/city';
+import {Address} from '../model/address';
 
 @Component({
   selector: 'app-person-form',
@@ -40,12 +38,14 @@ export class PersonFormComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: [null],
       lastName: [null],
+      phone: [null],
+      email: [null],
 
       address : this.formBuilder.group({
         description: [null],
         zipCode: [null],
         place: [null],
-        neigborhood: [null],
+        neighborhood: [null],
         number: [null],
         complement: [null],
         state: [null],

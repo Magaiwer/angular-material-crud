@@ -1,13 +1,11 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable, OnDestroy } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable, Subject} from 'rxjs';
+import {map} from 'rxjs/operators';
 
-import { State } from '../model/state';
-import { City } from '../model/city';
-import { Address } from './../model/address';
-import { nextTick } from 'q';
-import { element } from 'protractor';
+import {State} from '../model/state';
+import {City} from '../model/city';
+import {Address} from '../model/address';
 
 @Injectable({
   providedIn: 'root'

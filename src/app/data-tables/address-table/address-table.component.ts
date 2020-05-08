@@ -1,11 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { DataSource } from '@angular/cdk/table';
-import { Observable, of } from 'rxjs';
+import {Component, Input, OnInit} from '@angular/core';
+import {DataSource} from '@angular/cdk/table';
+import {Observable} from 'rxjs';
 
-import { PersonService } from './../../service/person.service';
-import { Address } from './../../model/address';
-import { format } from 'path';
-import { FormGroup } from '@angular/forms';
+import {PersonService} from '../../service/person.service';
+import {Address} from '../../model/address';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-address-table',
@@ -19,7 +18,8 @@ export class AddressTableComponent implements OnInit {
 
   @Input() form: FormGroup;
 
-  constructor(private personService: PersonService) {}
+  constructor(private personService: PersonService) {
+  }
 
   ngOnInit() {
 
@@ -42,7 +42,7 @@ export class AddressDataSource extends DataSource<any> {
   }
 
   connect(): Observable<Address[] | readonly Address[]> {
-    return  this.personService.loadAddresses();
+    return this.personService.loadAddresses();
   }
 
   disconnect() {

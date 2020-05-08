@@ -6,7 +6,7 @@
     </mat-form-field>
 
     <mat-form-field fxFlex>
-      <input matInput type="text" placeholder="Last Name" >
+      <input matInput type="text" placeholder="Last Name" formControlName="lastName" >
     </mat-form-field>
 
 
@@ -14,11 +14,11 @@
 
   <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="50px" fxLayoutGap.lt-md="0px">
     <mat-form-field fxFlex>
-      <input matInput  type="text"  placeholder="E-mail" formControlName="lastName" >
+      <input matInput  type="text"  placeholder="E-mail" formControlName="email" >
     </mat-form-field>
 
     <mat-form-field fxFlex>
-        <input matInput type="text" placeholder="Phone" >
+        <input matInput type="text" placeholder="Phone" formControlName="phone" >
       </mat-form-field>
 
   </div>
@@ -49,7 +49,7 @@
 
           <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="50px" fxLayoutGap.lt-md="0px">
               <mat-form-field fxFlex="25">
-                <input matInput  type="text"  placeholder="Neigborhood" formControlName="neigborhood" >
+                <input matInput  type="text"  placeholder="Neighborhood" formControlName="neighborhood" >
               </mat-form-field>
 
               <mat-form-field fxFlex="17">
